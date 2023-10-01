@@ -38,7 +38,7 @@ function Footer() {
             </Link>
           </div>
           {/* Guids */}
-          <div className="links d-flex flex-column" style={{ width: "400px" }}>
+          <div className="links d-flex flex-column" style={{ width: "250px" }}>
             <h5>Guids</h5>
             <Link to="https://react.dev/" style={{ textDecoration: "none", color: "white" }}>
               React
