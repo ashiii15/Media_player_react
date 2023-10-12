@@ -1,12 +1,27 @@
 import React,{useState} from 'react'
 import { Card,Modal } from 'react-bootstrap'
-import { deleteAVideo } from '../Services/allApi';
+import {  addToHistory, deleteAVideo, } from '../Services/allApi';
+import moment from 'moment/moment';
 
 function VideoCard({displayData,setDeleteVideo}) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = async() => {
+    setShow(true);
+    // get the timestamb
+    let timeStamb = moment().format('MMMM Do YYYY, h:mm:ss a');
+      console.log(timeStamb);
+      const {caption,embeddedLink} = displayData
+      const videoHistory ={
+        caption,embeddedLink,timeStamb
+      }
+      // get a api call to post json server
+       await addToHistory(videoHistory)
+
+
+
+  }
   const deleteServerVideo = async (id)=>{
  const response = await deleteAVideo(id)
  setDeleteVideo(true)

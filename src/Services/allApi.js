@@ -12,7 +12,7 @@ export const  uploadVideo = async (video)=>{
 }
 
 // get a single video from json server
-const getAVideo = async(id)=>{
+export const getAVideo = async(id)=>{
 return await commonApi("GET",`${baseUrl}/videos/${id}`,'')
 }
 // delete a single video from server
@@ -20,15 +20,24 @@ return await commonApi("GET",`${baseUrl}/videos/${id}`,'')
    return  await commonApi("DELETE",`${baseUrl}/videos/${id}`,{})
 }
 // insert video in watch history
-export const watchHistory = async()=>{
-   await commonApi('POST',`${baseUrl}/history`,{})
+export const addToHistory = async(videoHistory)=>{
+  return await commonApi('POST',`${baseUrl}/history`,videoHistory)
 
 }
+// insert video in watch history
+export const getHistory = async()=>{
+   return await commonApi('GET',`${baseUrl}/history`,'')
+ 
+ }
+
 // add category from server and return category
-const addCategory =async(body)=>{
+export const addCategory =async(body)=>{
     return  await commonApi("POST",`${baseUrl}/category`,body)
  }
  // get all category from server and return category
-const getAllCategory =async()=>{
+export const getAllCategory =async()=>{
     return  await commonApi("GET",`${baseUrl}/category`,'')
  }
+ export const deleteCategory =async(id)=>{
+  return  await commonApi("DELETE",`${baseUrl}/category/${id}`,{})
+}

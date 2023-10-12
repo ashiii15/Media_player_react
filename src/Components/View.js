@@ -19,7 +19,7 @@ useEffect(()=>{
   setDeleteVideo(false)
 
 },[uploadVideoServerResponse,deleteVideo])
-console.log(allVideos);
+// console.log(allVideos);
   
   return (
     <>

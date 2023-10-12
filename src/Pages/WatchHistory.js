@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getHistory } from "../Services/allApi";
 
 function WatchHistory() {
+  const [watchHistory,setWatchHistory] = useState([])
+  const watchSearchHistory = async()=>{
+    // get watch history api
+    const {data} = await getHistory()
+    setWatchHistory(data)
+    // console.log(data);
+  }
+
+  useEffect(()=>{
+    watchSearchHistory()
+  },[])
+  console.log(watchHistory);
   return (
     <>
       <div className="container d-flex justify-content-between mt-5">
@@ -23,13 +36,20 @@ function WatchHistory() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>vijay</td>
-              <td> <Link to='https://www.youtube.com/watch?v=Po3jStA673E&pp=ygUFdmlqYXk%3D' target="blank">https://www.youtube.com/watch?v=Po3jStA673E&pp=ygUFdmlqYXk%3D</Link></td>
-              <td>12/09/21</td>
-
+            {
+              watchHistory.length>0 ?
+              watchHistory.map((history,index)=>{
+                return <tr>
+                <td>{index + 1}</td>
+                <td>{history?.caption}</td>
+                <td> <Link to={history?.embeddedLink} target="blank">{history?.embeddedLink}</Link></td>
+                <td>{history?.timeStamb}</td>
             </tr>
+
+              })
+            
+            :<p>nothing to display</p>
+            }
           </tbody>
         </table>
       </div>

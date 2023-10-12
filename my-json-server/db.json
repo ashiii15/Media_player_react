@@ -22,6 +22,34 @@
       "youtubeLink": "https://www.youtube.com/watch?v=SqcY0GlETPk"
     }
   ],
-  "history": [],
-  "category": []
+  "history": [
+    {
+      "caption": "angular",
+      "embeddedLink": "https://www.youtube.com/embed/3qBXWUpoPHo",
+      "timeStamb": "October 11th 2023, 10:10:33 pm",
+      "id": 1
+    },
+    {
+      "caption": "node",
+      "embeddedLink": "https://www.youtube.com/embed/Oe421EPjeBE",
+      "timeStamb": "October 11th 2023, 10:14:02 pm",
+      "id": 2
+    },
+    {
+      "caption": "react",
+      "embeddedLink": "https://www.youtube.com/embed/SqcY0GlETPk",
+      "timeStamb": "October 11th 2023, 10:14:20 pm",
+      "id": 3
+    }
+  ],
+  "category": [
+    {
+      "addCategorie": "frontend",
+      "id": 18
+    },
+    {
+      "addCategorie": "backend",
+      "id": 20
+    }
+  ]
 }
